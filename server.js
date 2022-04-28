@@ -1,4 +1,6 @@
-import * as api from './api';
+const api = require("./api");
+
+//import * as api from './api';
 
 
 async function classReport(srcClassPath) {
