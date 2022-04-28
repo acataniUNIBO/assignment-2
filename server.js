@@ -11,12 +11,20 @@ async function interfaceReport(srcInterfacePath) {
     document.getElementById("interface").innerHTML(res);
 }
 
-async function packageReport(srcPackageReport) {
-    let res = await api.getPackageReport(srcPackageReport);
+async function packageReport(srcPackagePath) {
+    let res = await api.getPackageReport(srcPackagePath);
     document.getElementById("package").innerHTML(res);
 }
 
-async function projectReport(srcProjectReport) {
-    let res = await api.getProjectReport(srcProjectReport);
+async function projectReport(srcProjectPath) {
+    let res = await api.getProjectReport(srcPackagePath);
     document.getElementById("project").innerHTML(res);
+}
+
+async function analyzeProject(srcProjectPath) {
+    await api.analyzeProject_v_1(srcProjectPath, (res) => {
+        while (res != "") {
+            document.getElementById("analyze").innerHTML(res);
+        }   
+    });
 }

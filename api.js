@@ -49,16 +49,24 @@ export function getProjectReport(srcProjectFolderPath) {
     return promise;
 }
 
-/*
-export function analyzeProject(srcProjectFolderPath, callback) {
+
+
+
+export function analyzeProject_v_1(srcProjectFolderPath, callback) {
     let promise = new Promise((resolve, reject) => {
         exec('',(error,stdout,stderr) => {
             if (error) {
                 reject(error);
             }
-            resolve(stdout);
+            let res = "";
+            while(stdout) {
+                res = stdout;
+                callback(resolve(res));
+                res = "";
+            }
         });
     });
     return promise;
 }
-*/
+
+
